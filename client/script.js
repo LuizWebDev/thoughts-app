@@ -53,6 +53,7 @@ const createForm = () => {
     button.id = 'purge'
     button.innerText = 'Purge'
     form.append(button)
+    form.autocomplete = 'off'
     
     div.append(form)
 }
@@ -60,5 +61,21 @@ const createForm = () => {
 
 h1.addEventListener('click', createForm)
 
+// const submit = document.querySelector('#purge')
 
+
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    let formData = Object.fromEntries(new FormData(e.target))
+    console.log(formData)
+    fetch("http://localhost:3000/route", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+      })
+
+      //async function to display the route
+      window.location.href="http://localhost:3000/route"
+})
 
