@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#container {
+    display: flex;
+    justify-content: center;
+    margin-top: 4em;
+}
+
+h1 {
+    cursor: pointer;
+    color: #adb5bd;
+    font-weight: 300;
+    font-size: 4em;
+    transition: 0.5s;
+    margin-top: 2em;
+}
+
+h1:hover {
+    color: #6c757d;
+    font-size: 4.5em;
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+form {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    animation: 0.7s ease-out 0s 1 slideInFromBottom;  
+}
+
+#thoughts, input, button{
+    border-style: none;
+    outline: none;
+    padding: 0.2em;
+    font-size: 1.5em;
+    resize: none;
+}
+
+#thoughts {
+    font-size: 1.6em;
+}
+
+#purge {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
