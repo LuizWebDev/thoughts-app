@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'IBM Plex Serif', serif;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    margin: 4em 2em;
+}
+
+h1 {
+    cursor: pointer;
+    color: #adb5bd;
+    font-weight: 300;
+    font-size: 4em;
+    transition: 0.5s;
+    margin-top: 2em;
+    text-align: center;
+}
+
+h1:hover {
+    color: #6c757d;
+    font-size: 4.5em;
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+form {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    animation: 0.7s ease-out 0s 1 slideInFromBottom;  
+    
+}
+
+#thoughts, input, button{
+    border-style: none;
+    outline: none;
+    resize: none;
+}
+
+#thoughts {
+    font-size: 1.6em;
+    padding: 0.2em;
+}
+
+#title {
+    font-size: 2em;
+}
+
+#name {
+    font-size: 1.5em;
+    padding: 0.2em;
+}
+
+
+#purge {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0.2em;
+    font-size: 1.5em;
+    width: 50%;
+    
+}
+
+#purge:hover {
+    background-color: #6c757d;
+    color: white;
+
+}
+
+.hidden {
+    display: none;
+}
+
