@@ -1,9 +1,9 @@
-const Thougth = require('../models/post');
+const Thought = require('../models/post');
 
 async function index (req, res) {
 try {
 
-    const thoughts = await Thougth.all;
+    const thoughts = await Thought.all;
     res.status(200).json(thoughts)
     
 } catch (err) {
@@ -14,7 +14,7 @@ try {
 
 async function show (req, res) {
     try {
-        const thought = await Thougth.findById(req.params.id)
+        const thought = await Thought.findById(req.params.id)
         res.status(200).json(thought)
         
     } catch (err) {
@@ -25,7 +25,8 @@ async function show (req, res) {
 
 async function create (req, res) {
     try {
-        const thought = await Thougth.create(req.body);
+        console.log(req.body)
+        const thought = await Thought.create(req.body.title, req.body.name, req.body.thought);
         res.status(201).json(thought)
     } catch (err) {
         res.status(422).json({err})

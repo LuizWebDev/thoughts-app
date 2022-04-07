@@ -69,13 +69,13 @@ form.addEventListener('submit', (e) => {
     e.preventDefault()
     let formData = Object.fromEntries(new FormData(e.target))
     console.log(formData)
-    fetch("http://localhost:3000/route", {
+    fetch("http://localhost:3050/", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: { "Content-Type": "application/json" },
       })
 
       //async function to display the route
-      window.location.href="http://localhost:3000/route"
+//       window.location.href="http://localhost:3000/form"
 })
 

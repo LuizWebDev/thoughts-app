@@ -1,0 +1,34 @@
+version: '3'
+services:
+  server:
+    image: node:14
+    working_dir: /server
+    ports: 
+      - 3000:3000
+    environment: 
+      - PGUSER=my-app
+      - PGHOST=db
+      - PGPASSWORD=my-app-pass
+      - PGDATABASE=my-app-db
+      - PGPORT=5432
+    depends_on:
+      - db
+    volumes:
+      - type: bind
+        source: ./server
+        target: /server
+    command: bash -c "npm install && npm start"
+
+  db:
+    image: postgres:latest
+    ports:
+      - 35432:5432
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+      - "./database/:/docker-entrypoint-initdb.d/:ro"
+    environment: 
+      - POSTGRES_DB=my-app-db
+      - POSTGRES_USER=my-app
+      - POSTGRES_PASSWORD=my-app-pass
+volumes:
+  dbdata:

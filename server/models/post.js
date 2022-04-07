@@ -9,6 +9,22 @@ module.exports = class Thought {
         this.thought = data.thought;
     }
 
+
+    static create(title, pseudonym, thought) {
+        return new Promise (async (resolve, reject) => {
+            try {
+                let formData = db.query(`INSERT INTO post title, pseudonym, thought VALUES ($1 $2 $3) RETURNING *;`, [title, pseudonym, thought])
+                let newThought = new Thought(formData.rows[0])
+                resolve(newThought)
+            } catch (err) {
+                reject('Thought could not be created')
+            }
+        })
+    }
+
+
+
+
 static get all(){
 return new Promise (async (resolve, reject) => {
 try {
